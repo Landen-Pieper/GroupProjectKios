@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAT Building Kiosk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .tabs, .subtabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .tab, .subtab {
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .tab.active, .subtab.active {
+            background-color: #333;
+            color: #fff;
+        }
+        .tab-content, .subtab-content {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .tab-content.active, .subtab-content.active {
+            display: block;
+        }
+        .room-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .room {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f8ff;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .room:hover .tooltip {
+            display: block;
+        }
+        .tooltip {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>CAT Building Kiosk</h1>
+    <div class="tabs">
+        <div class="tab active" data-target="navigation">Navigation</div>
+        <div class="tab" data-target="events">Scheduled Events</div>
+        <div class="tab" data-target="schedule">Room Utilization Schedule</div>
+        <div class="tab" data-target="departments">Departments & History</div>
+    </div>
+    <div class="tab-content active" id="navigation">
+        <h2>Building Navigation</h2>
+        <div class="subtabs">
+            <div class="subtab active" data-target="first-floor">First Floor</div>
+            <div class="subtab" data-target="second-floor">Second Floor</div>
+        </div>
+        <div class="subtab-content active" id="first-floor">
+            <h3>First Floor</h3>
+            <div class="room-container">
+                <div class="room">Room A<div class="tooltip">Details about Room A</div></div>
+                <div class="room">Room B<div class="tooltip">Details about Room B</div></div>
+                <div class="room">Room C<div class="tooltip">Details about Room C</div></div>
+            </div>
+        </div>
+        <div class="subtab-content" id="second-floor">
+            <h3>Second Floor</h3>
+            <div class="room-container">
+                <div class="room">Room D<div class="tooltip">Details about Room D</div></div>
+                <div class="room">Room E<div class="tooltip">Details about Room E</div></div>
+                <div class="room">Room F<div class="tooltip">Details about Room F</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content" id="events">
+        <h2>Scheduled Events</h2>
+        <p>Check upcoming events and activities here.</p>
+    </div>
+    <div class="tab-content" id="schedule">.
+        <h2>Room Utilization Schedule</h2>
+        <p>View the schedule for room usage here.</p>
+    </div>
+    <div class="tab-content" id="departments">
+        <h2>Departments & History</h2>
+        <p>Learn about the history of the building and the departments housed in it.</p>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        const subtabs = document.querySelectorAll('.subtab');
+        const subtabContents = document.querySelectorAll('.subtab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.add('active');
+            });
+        });
+
+        subtabs.forEach(subtab => {
+            subtab.addEventListener('click', () => {
+                subtabs.forEach(t => t.classList.remove('active'));
+                subtabContents.forEach(content => content.classList.remove('active'));
+
+                subtab.classList.add('active');
+                document.getElementById(subtab.dataset.target).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
