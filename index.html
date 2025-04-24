@@ -7,18 +7,18 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px; /* Default margin for other pages */
+      margin: 20px;
     }
 
     /* Full-page background for the Departments & History section */
     body.history-page {
-      margin: 0; /* Remove default body margins for the history page */
-      background-image: url("backgroundColor.png"); /* Ensure this path is correct! */
+      margin: 0;
+      background-image: url("backgroundColor.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       min-height: 100vh;
-      color: #000000; /* Default text color for the history page */
+      color: #000000;
     }
 
     h1 {
@@ -53,13 +53,44 @@
 
     .tab-content.active, .subtab-content.active {
       display: block;
+      text-align: left;
     }
 
-    /* Styles for the Departments & History content when it's active */
+    .tab-content#events.active {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .event-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .event-item h3 {
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+    }
+
+    .event-item p {
+      margin-bottom: 5px;
+      font-size: 0.95em;
+    }
+
+    .event-item .date {
+      font-style: italic;
+      color: #555;
+    }
+
+    /* History section styles */
     .tab-content#departments.active {
-      text-align: left; /* Align text to the left within the content area */
-      background-color: transparent; /* Make the content background transparent */
-      padding: 20px; /* Add padding within the content area */
+      text-align: left;
+      background-color: transparent;
+      padding: 20px;
     }
 
     .tab-content#departments.active h2 {
@@ -67,54 +98,16 @@
       font-size: 1.8em;
       border-bottom: 2px solid rgba(0, 0, 0, 0.5);
       padding-bottom: 10px;
-      text-align: center; /* Center the heading within its container */
-      background-color: transparent;
-      padding: 5px;
-      color: #000000; /* Set heading text color */
+      text-align: center;
+      color: #000000;
     }
 
     .tab-content#departments.active p {
       line-height: 1.6;
       margin-bottom: 15px;
       font-size: 1em;
-      background-color: transparent;
-      color: #000000; /* Set paragraph text color */
       text-indent: 2em;
-    }
-
-    .room-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .room {
-      width: 150px;
-      height: 150px;
-      background-color: #f0f8ff;
-      border: 2px solid black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .room:hover .tooltip {
-      display: block;
-    }
-
-    .tooltip {
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: black;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: none;
+      color: #000000;
     }
   </style>
 </head>
@@ -126,53 +119,33 @@
     <div class="tab" data-target="schedule">Room Utilization Schedule</div>
     <div class="tab" data-target="departments">Departments & History</div>
   </div>
+
   <div class="tab-content active" id="navigation">
     <h2>Building Navigation</h2>
-    <div class="subtabs">
-      <div class="subtab active" data-target="first-floor">First Floor</div>
-      <div class="subtab" data-target="second-floor">Second Floor</div>
-    </div>
-    <div class="subtab-content active" id="first-floor">
-      <h3>First Floor</h3>
-      <div class="room-container">
-        <div class="room">Room A<div class="tooltip">Details about Room A</div></div>
-        <div class="room">Room B<div class="tooltip">Details about Room B</div></div>
-        <div class="room">Room C<div class="tooltip">Details about Room C</div></div>
-      </div>
-    </div>
-    <div class="subtab-content" id="second-floor">
-      <h3>Second Floor</h3>
-      <div class="room-container">
-        <div class="room">Room D<div class="tooltip">Details about Room D</div></div>
-        <div class="room">Room E<div class="tooltip">Details about Room E</div></div>
-        <div class="room">Room F<div class="tooltip">Details about Room F</div></div>
-      </div>
-    </div>
   </div>
+
   <div class="tab-content" id="events">
     <h2>Scheduled Events</h2>
-    <p>Check upcoming events and activities here.</p>
+    <div id="events-list">
+      <p>Loading events...</p>
+    </div>
   </div>
+
   <div class="tab-content" id="schedule">
     <h2>Room Utilization Schedule</h2>
     <p>View the schedule for room usage here.</p>
   </div>
+
   <div class="tab-content" id="departments">
     <h2>History</h2>
-    <p>The Center for Applied Technology (CAT) at Wayne State College (WSC) represents a significant investment in the future of industrial technology education within Northeast Nebraska. Officially opening for classes in January 2019, the CAT was conceived to directly address the growing demand for skilled professionals in a variety of technical fields. This state-of-the-art facility is designed to provide students with comprehensive training and hands-on experience in areas crucial to modern industry, including industrial technology education, manufacturing, construction and safety management, drafting, engineering, and computer sciences.</p>
-
-    <p>Central to the CAT's mission is its commitment to bridging the gap between academic learning and real-world application. The center features modern, technology-driven classrooms and instructional labs equipped with industry-standard equipment. This allows students to gain practical skills and familiarity with the technologies they will encounter in their future careers. Beyond its role in student education, the CAT also serves as a vital resource for the broader Northeast Nebraska community. It provides management training for industry professionals, supports employee development, and fosters small business entrepreneurship in manufacturing. Furthermore, the center engages in applied research in collaboration with industry partners, ensuring that its curriculum remains relevant and aligned with current industry needs. The CAT also functions as a career academy for area high school students, introducing them to the diverse and rewarding career paths available in industrial technology.</p>
-
-    <p>The physical infrastructure of the CAT is a testament to its commitment to cutting-edge education. The facility houses specialized labs dedicated to a wide range of disciplines, including drafting and design, manufacturing, welding, power and energy, construction and woodworking, robotics, computing and networking, and mechatronics. Each lab is designed to provide students with hands-on experience, allowing them to develop the practical skills necessary to succeed in their chosen fields. By combining modern facilities, industry partnerships, and a focus on practical application, the Center for Applied Technology at Wayne State College plays a crucial role in preparing the next generation of industrial technology professionals and contributing to the economic development of Northeast Nebraska.</p>
+    <p>Details about the CAT Building...</p>
   </div>
 
   <script>
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
-    const body = document.body; // Get the body element
-
-    const subtabs = document.querySelectorAll('.subtab');
-    const subtabContents = document.querySelectorAll('.subtab-content');
+    const body = document.body;
+    const eventsListContainer = document.getElementById('events-list');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -183,7 +156,10 @@
         const targetId = tab.dataset.target;
         document.getElementById(targetId).classList.add('active');
 
-        // Add or remove the 'history-page' class from the body
+        if (targetId === 'events') {
+          loadEvents();
+        }
+
         if (targetId === 'departments') {
           body.classList.add('history-page');
         } else {
@@ -192,29 +168,38 @@
       });
     });
 
-    subtabs.forEach(subtab => {
-      subtab.addEventListener('click', () => {
-        subtabs.forEach(t => t.classList.remove('active'));
-        subtabContents.forEach(content => content.classList.remove('active'));
+    // Function to load events from event.json
+    async function loadEvents() {
+      try {
+        const response = await fetch('event.json'); // Ensure event.json is in the same directory
+        const events = await response.json();
+        
+        eventsListContainer.innerHTML = ''; // Clear loading message
 
-        subtab.classList.add('active');
-        document.getElementById(subtab.dataset.target).classList.add('active');
-      });
-    });
+        if (events.length === 0) {
+          eventsListContainer.innerHTML = '<p>No events found.</p>';
+          return;
+        }
 
-    // Initially, set 'Navigation' as the active tab and remove 'history-page' class
-    document.addEventListener('DOMContentLoaded', () => {
-      const initialActiveTab = document.querySelector('.tab[data-target="navigation"]');
-      const initialActiveContent = document.getElementById('navigation');
-
-      if (initialActiveTab && initialActiveContent) {
-        tabs.forEach(t => t.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        initialActiveTab.classList.add('active');
-        initialActiveContent.classList.add('active');
-        body.classList.remove('history-page'); // Ensure history-page is off initially
+        events.forEach(event => {
+          const eventItem = document.createElement('div');
+          eventItem.classList.add('event-item');
+          eventItem.innerHTML = `
+            <h3>${event.title}</h3>
+            <p class="date">Date: ${event.date}</p>
+            <p>Time: ${event.time}</p>
+            <p>Location: ${event.location}</p>
+            <p>${event.description}</p>
+          `;
+          eventsListContainer.appendChild(eventItem);
+        });
+      } catch (error) {
+        console.error('Error fetching events:', error);
+        eventsListContainer.innerHTML = '<p>Failed to load events.</p>';
       }
-    });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadEvents);
   </script>
 </body>
 </html>
