@@ -10,17 +10,6 @@
       margin: 20px;
     }
 
-    /* Full-page background for the Departments & History section */
-    body.history-page {
-      margin: 0;
-      background-image: url("backgroundColor.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
-      color: #000000;
-    }
-
     h1 {
       text-align: center;
       color: #333;
@@ -42,7 +31,7 @@
 
     .tab.active, .subtab.active {
       background-color: black;
-      color: #fff;
+      color: white;
     }
 
     .tab-content, .subtab-content {
@@ -53,15 +42,9 @@
 
     .tab-content.active, .subtab-content.active {
       display: block;
-      text-align: left;
     }
 
-    .tab-content#events.active {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-
+    /* Event Section Styles */
     .event-item {
       border: 1px solid #ccc;
       padding: 15px;
@@ -71,59 +54,53 @@
     }
 
     .event-item h3 {
-      margin-top: 0;
-      margin-bottom: 5px;
       font-size: 1.2em;
     }
 
     .event-item p {
-      margin-bottom: 5px;
-      font-size: 0.95em;
-    }
-
-    .event-item .date {
-      font-style: italic;
+      font-size: 1em;
       color: #555;
     }
 
-    /* History section styles */
-    .tab-content#departments.active {
-      text-align: left;
-      background-color: transparent;
+    /* Faculty Directory Styles */
+    .faculty-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .faculty-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
+      border-bottom: 1px solid #ccc;
     }
 
-    .tab-content#departments.active h2 {
-      margin-bottom: 15px;
-      font-size: 1.8em;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-      padding-bottom: 10px;
-      text-align: center;
-      color: #000000;
-    }
-
-    .tab-content#departments.active p {
-      line-height: 1.6;
-      margin-bottom: 15px;
-      font-size: 1em;
-      text-indent: 2em;
-      color: #000000;
+    .faculty-item img {
+      width: 120px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
+
   <h1>CAT Building Kiosk</h1>
+
   <div class="tabs">
-    <div class="tab active" data-target="navigation">Navigation</div>
+    <div class="tab active" data-target="navigation">Building Navigation</div>
     <div class="tab" data-target="events">Scheduled Events</div>
-    <div class="tab" data-target="schedule">Room Utilization Schedule</div>
+    <div class="tab" data-target="faculty">Faculty Directory</div>
     <div class="tab" data-target="departments">Departments & History</div>
   </div>
 
+  <!-- Navigation -->
   <div class="tab-content active" id="navigation">
     <h2>Building Navigation</h2>
   </div>
 
+  <!-- Scheduled Events -->
   <div class="tab-content" id="events">
     <h2>Scheduled Events</h2>
     <div id="events-list">
@@ -131,21 +108,50 @@
     </div>
   </div>
 
-  <div class="tab-content" id="schedule">
-    <h2>Room Utilization Schedule</h2>
-    <p>View the schedule for room usage here.</p>
+  <!-- Faculty Directory -->
+  <div class="tab-content" id="faculty">
+    <h2>Faculty Directory</h2>
+    <div class="subtabs">
+      <div class="subtab active" data-target="first-floor-faculty">First Floor Faculty</div>
+      <div class="subtab" data-target="second-floor-faculty">Second Floor Faculty</div>
+    </div>
+
+    <div class="subtab-content active" id="first-floor-faculty">
+      <h2>First Floor Faculty</h2>
+      <ul class="faculty-list">
+        <li class="faculty-item"><img src="Professors/JessiePiper.jpg" alt="Jessie Piper"><h3>Jessie Piper, MSE</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/GrantSchrick.jpg" alt="Grant Schrick"><h3>Grant Schrick, MSE</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/JeffAllen.jpg" alt="Jeff Allen"><h3>Jeff Allen, Ed.D.</h3><p>Professor</p></li>
+        <li class="faculty-item"><img src="Professors/ErinArneson.jpg" alt="Erin Arneson"><h3>Erin Arneson, Ph.D.</h3><p>Assistant Professor</p></li>
+        <li class="faculty-item"><img src="Professors/DavidHix.jpg" alt="David Hix"><h3>David Hix, MSE</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/AlLindsay.jpg" alt="Al Lindsay"><h3>Al Lindsay, MSE</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/DanMitchell.jpg" alt="Dan Mitchell"><h3>Dan Mitchell, MSE</h3><p>Instructor</p></li>
+      </ul>
+    </div>
+
+    <div class="subtab-content" id="second-floor-faculty">
+      <h2>Second Floor Faculty</h2>
+      <ul class="faculty-list">
+        <li class="faculty-item"><img src="Professors/JeremyWynia.jpg" alt="Jeremy Wynia"><h3>Jeremy Wynia, MSOM</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/MollyCurnyn.jpg" alt="Molly Curnyn"><h3>Molly Curnyn, Ed.D.</h3><p>Professor</p></li>
+        <li class="faculty-item"><img src="Professors/TimothyGarvin.jpg" alt="Timothy Garvin"><h3>Timothy Garvin, Ph.D.</h3><p>Professor</p></li>
+        <li class="faculty-item"><img src="Professors/DebbieJohnson.jpg" alt="Debbie Johnson"><h3>Debbie Johnson, MSOM</h3><p>Instructor</p></li>
+        <li class="faculty-item"><img src="Professors/LoriNicholson.jpg" alt="Lori Nicholson"><h3>Lori Nicholson, Ph.D.</h3><p>Professor</p></li>
+      </ul>
+    </div>
   </div>
 
+  <!-- Departments & History -->
   <div class="tab-content" id="departments">
-    <h2>History</h2>
+    <h2>Departments & History</h2>
     <p>Details about the CAT Building...</p>
   </div>
 
   <script>
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
-    const body = document.body;
-    const eventsListContainer = document.getElementById('events-list');
+    const subtabs = document.querySelectorAll('.subtab');
+    const subtabContents = document.querySelectorAll('.subtab-content');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -153,53 +159,47 @@
         tabContents.forEach(content => content.classList.remove('active'));
 
         tab.classList.add('active');
-        const targetId = tab.dataset.target;
-        document.getElementById(targetId).classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
 
-        if (targetId === 'events') {
+        if (tab.dataset.target === 'events') {
           loadEvents();
-        }
-
-        if (targetId === 'departments') {
-          body.classList.add('history-page');
-        } else {
-          body.classList.remove('history-page');
         }
       });
     });
 
-    // Function to load events from event.json
+    subtabs.forEach(subtab => {
+      subtab.addEventListener('click', () => {
+        subtabs.forEach(t => t.classList.remove('active'));
+        subtabContents.forEach(content => content.classList.remove('active'));
+
+        subtab.classList.add('active');
+        document.getElementById(subtab.dataset.target).classList.add('active');
+      });
+    });
+
     async function loadEvents() {
       try {
-        const response = await fetch('event.json'); // Ensure event.json is in the same directory
-        const events = await response.json();
-        
-        eventsListContainer.innerHTML = ''; // Clear loading message
+        const response = await fetch('event.json');
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-        if (events.length === 0) {
-          eventsListContainer.innerHTML = '<p>No events found.</p>';
-          return;
-        }
+        const events = await response.json();
+        const eventsContainer = document.getElementById('events-list');
+        eventsContainer.innerHTML = '';
 
         events.forEach(event => {
           const eventItem = document.createElement('div');
           eventItem.classList.add('event-item');
-          eventItem.innerHTML = `
-            <h3>${event.title}</h3>
-            <p class="date">Date: ${event.date}</p>
-            <p>Time: ${event.time}</p>
-            <p>Location: ${event.location}</p>
-            <p>${event.description}</p>
-          `;
-          eventsListContainer.appendChild(eventItem);
+          eventItem.innerHTML = `<h3>${event.title}</h3><p>${event.date}</p><p>${event.time}</p><p>${event.location}</p><p>${event.description}</p>`;
+          eventsContainer.appendChild(eventItem);
         });
       } catch (error) {
         console.error('Error fetching events:', error);
-        eventsListContainer.innerHTML = '<p>Failed to load events.</p>';
+        document.getElementById('events-list').innerHTML = '<p>Failed to load events.</p>';
       }
     }
 
     document.addEventListener('DOMContentLoaded', loadEvents);
   </script>
+
 </body>
 </html>
